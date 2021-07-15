@@ -20,10 +20,13 @@ class PreProcesser:
         self.raw_path = self.config["ALL_SEQUENCES"]
         self.slide = int(self.config["SLIDE"])
         self.n_of_seq = int(self.config["NUM_OF_SEQ"])
+<<<<<<< HEAD
         self.vector_size = int(self.config["VECTOR_SIZE"])
         self.window_size = int(self.config["WINDOW"])
 
         self.name = f"{self.slide}_{self.n_of_seq}_{self.vector_size}_{self.window_size}"
+=======
+>>>>>>> c44f3142268d4db48bc1e042fe9b1e4b807b27dd
 
     def main(self):
         sequences = set()
@@ -56,14 +59,25 @@ class PreProcesser:
 
         model = Word2Vec(
             sentences=sentences,
+<<<<<<< HEAD
             vector_size=self.vector_size,
             window=self.window_size,
+=======
+            vector_size=5,
+            window=10,
+>>>>>>> c44f3142268d4db48bc1e042fe9b1e4b807b27dd
             min_count=4,
             workers=8,
             sg=1,
         )
 
+<<<<<<< HEAD
         model.wv.save_word2vec_format(f"./grna_w2v_{self.name}")
+=======
+        model.wv.save_word2vec_format(
+            f"./grna_w2v_{self.slide}_{self.n_of_seq}"
+        )
+>>>>>>> c44f3142268d4db48bc1e042fe9b1e4b807b27dd
 
         tsne_vector = list()
         for word in corpus:
@@ -75,7 +89,11 @@ class PreProcesser:
         X_embedded = TSNE(n_components=2).fit_transform(tsne_vector)
 
         plt.scatter(X_embedded[:, 0], X_embedded[:, 1])
+<<<<<<< HEAD
         plt.savefig(f"tsne_{self.name}")
+=======
+        plt.savefig(f"tsne_{self.slide}_{self.n_of_seq}")
+>>>>>>> c44f3142268d4db48bc1e042fe9b1e4b807b27dd
 
         # model_result = model.wv.most_similar(sentences[0][0])
         # print(sentences[0][0], model_result)
