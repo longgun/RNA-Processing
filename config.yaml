@@ -1,0 +1,5 @@
+ALL_SEQUENCES: /home/dhonggeon/WorkPlace/RNA-Processing/data/ensembl103_cas9.output
+SLIDE: 7
+NUM_OF_SEQ: 1000000
+VECTOR_SIZE: 200
+WINDOW: 4
